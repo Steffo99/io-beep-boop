@@ -20,7 +20,6 @@ jobs:
   pytest:
     name: "🧪 Test package using pytest"
     runs-on: ubuntu-latest
-    if: "false"
 
     # If you need a database to perform your tests
     # services:
