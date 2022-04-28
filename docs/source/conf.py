@@ -15,9 +15,9 @@ import datetime
 # Alter these to reflect the nature of your project!
 
 # Project name
-project = 'PROJECT NAME'
+project = 'Io Beep Boop'
 # Project author
-author = 'Your Name'
+author = 'Stefano Pigozzi'
 # Project copyright
 project_copyright = f'{datetime.date.today().year}, {author}'
 
@@ -27,14 +27,14 @@ language = "en"
 # Configuration for the theme
 html_theme_options = {
     # Set this to the main color of your project
-    "style_nav_header_background": "#FF7F00",
+    # "style_nav_header_background": "#FF7F00",
 }
 html_context = {
     "display_github": True,
     # Set this to the name of the organization this GitHub repository is in
     "github_user": "Steffo99",
     # Set this to the name of this repository
-    "github_repo": "template-poetry",
+    "github_repo": "io-beep-boop",
     # Set this to the name of the main branch slash docs slash
     "github_version": "main/docs/",
 }

@@ -1,11 +1,15 @@
-.. Write your documentation in this file!
+############
+Io Beep Boop
+############
 
-Welcome to PROJECT_NAME's documentation!
-========================================
+An experimental wrapper and command line interface for the Italian `IO App API <https://developer.io.italia.it/openapi.html>`_.
+
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents
+
+    cli
+    reference
+    trivia
 
 
 Indices and tables

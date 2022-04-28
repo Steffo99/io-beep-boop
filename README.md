@@ -1,17 +1,17 @@
-# `PACKAGE_NAME`
+# `io-beep-boop`
 
 You should probably update this description to reflect your project :)
 
 ## Installation
 
 ```console
-$ pip install PACKAGE_NAME
+$ pip install io-beep-boop
 ```
 
 ## Usage
 
 ```console
-$ PACKAGE-NAME
+$ io-beep-boop
 ```
 
 ## Development

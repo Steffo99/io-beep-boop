@@ -19,7 +19,7 @@ build-backend = "poetry.core.masonry.api"
 
 # The name of your project.
 # Ensure that it is available on PyPI: https://pypi.org/
-name = "PACKAGE_NAME"
+name = "io-beep-boop"
 
 # The version of the package.
 version = "0.1.0"
@@ -29,31 +29,31 @@ description = ""
 
 # A list of the authors of the project.
 authors = [
-    "Your Name <you@example.org>",
+    "Stefano Pigozzi <you@example.org>",
 ]
 
 # A list of maintainers of the project.
 # Often, it is the same as the authors list.
 maintainers = [
-    "Your Name <you@example.org>",
+    "Stefano Pigozzi <you@example.org>",
 ]
 
 # The license of the package.
 # Uses SPDX format: https://spdx.org/licenses/
-license = ""
+license = "AGPL-3.0-or-later"
 
 # The README file.
 readme = "README.md"
 
 # The URL of the project website.
 # Not the GitHub repository!
-homepage = "https://example.org/"
+# homepage = "https://example.org/"
 
 # The URL of the project repository.
-repository = "https://github.com/"
+repository = "https://github.com/Steffo99/io-beep-boop"
 
 # The URL of the project documentation location.
-documentation = "https://example.org/docs"
+# documentation = "https://example.org/docs"
 
 # Up to five keywords related to your project.
 # See also: https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#keywords
@@ -111,7 +111,7 @@ classifiers = [
 # If you are building a library, comment this.
 # If you are building an application, replace PACKAGE-NAME and PACKAGE_NAME with your package name in kebab-case and snake_case respectively.
 
-PACKAGE-NAME = "PACKAGE_NAME.__main__:main"
+io-beep-boop = "io_beep_boop.cli.__main__:main"
 
 
 
@@ -132,6 +132,10 @@ PACKAGE-NAME = "PACKAGE_NAME.__main__:main"
 #          3.10.1  →  == 3.10.1
 
 python = "^3.10"
+cfig = {extras = ["cli"], version = "^0.2.3"}
+click = "^8.1.2"
+httpx = "^0.22.0"
+pydantic = "^1.9.0"
 
 
 
