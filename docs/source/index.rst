@@ -7,9 +7,10 @@ An experimental wrapper and command line interface for the Italian `IO App API <
 
 .. toctree::
 
+    installation
     cli
     reference
-    trivia
+    misc
 
 
 Indices and tables

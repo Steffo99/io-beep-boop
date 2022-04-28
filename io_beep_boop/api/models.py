@@ -65,8 +65,6 @@ class GetMessageResponse(IOModel):
 
 
 class UserProfile(IOModel):
-    email: str
-    version: int
     sender_allowed: bool
 
 

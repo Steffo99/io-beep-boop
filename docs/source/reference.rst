@@ -2,6 +2,8 @@
 API Reference
 #############
 
+.. automodule:: io_beep_boop
+
 
 :mod:`io_beep_boop.api`
 =======================

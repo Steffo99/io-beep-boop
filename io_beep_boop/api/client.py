@@ -122,7 +122,7 @@ class IOServiceClient(httpx.Client):
             https://developer.io.italia.it/openapi.html#operation/getSubscriptionsFeedForDate
         """
 
-        return self.get(f"/subscriptions-feed/{date.isoformat()}")
+        return self.get(f"/subscriptions-feed/{date.strftime('%Y-%m-%d')}")
 
     # TODO: Service-level endpoints - since it seems weird to me that a service can spawn endless clones of itself?
 

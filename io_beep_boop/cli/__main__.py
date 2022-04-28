@@ -12,13 +12,15 @@ from ..api.models import SubscriptionsFeed
 
 def hash_fiscal_code(code: str) -> str:
     uppercased_code = code.upper()
-    hashed_code = hashlib.sha256(uppercased_code)
+    encoded_code = bytes(uppercased_code, encoding="utf8")
+    hashed_code = hashlib.sha256(encoded_code)
     hexed_hash = hashed_code.hexdigest()
     lowercased_hash = hexed_hash.lower()
     return lowercased_hash
 
 
 @click.group()
+@click.version_option(package_name="io-beep-boop")
 @click.option(
     "-t",
     "--token",
@@ -65,15 +67,17 @@ def main(ctx: click.Context, token: str, base_url: str):
 )
 @click.option(
     "--start-date",
-    type=datetime.date,
+    type=click.DateTime(formats=["%Y-%m-%d"]),
     help="The date to start retrieving fiscal codes from.",
+    default=datetime.date.today().isoformat(),
     prompt=True,
 )
 @click.option(
     "--end-date",
-    type=datetime.date,
+    type=click.DateTime(formats=["%Y-%m-%d"]),
     help="The date to stop retrieving fiscal codes at.",
-    default=datetime.date.today(),
+    default=datetime.date.today().isoformat(),
+    prompt=True,
 )
 @click.option(
     "--sleep",
@@ -99,12 +103,19 @@ def registered_fast(ctx: click.Context, input_file: t.TextIO, registered_file: t
 
     with click.progressbar(range(0, total_days), length=total_days, label="Retrieving data from the API...") as days:
         for day in days:
-            feed: SubscriptionsFeed = client.get_subscriptions_on_day(date=start_date + datetime.timedelta(days=day))
-
-            api_codes += set(feed.subscriptions)
-            api_codes -= set(feed.unsubscriptions)
-
-            time.sleep(sleep)
+            while True:
+                try:
+                    feed: SubscriptionsFeed = client.get_subscriptions_on_day(date=start_date + datetime.timedelta(days=day))
+                except httpx.HTTPStatusError as e:
+                    if e.response.status_code == 429:
+                        continue
+                    else:
+                        raise
+                else:
+                    api_codes += set(feed.subscriptions)
+                    api_codes -= set(feed.unsubscriptions)
+                finally:
+                    time.sleep(sleep)
 
     # Convert objects back to fiscal codes
     click.echo("Calculating registered fiscal codes...")
@@ -162,17 +173,26 @@ def registered_slow(ctx: click.Context, input_file: t.TextIO, registered_file: t
 
     with click.progressbar(input_codes, label="Performing checks...") as codes:
         for code in codes:
-            try:
-                profile = client.get_profile(fiscal_code=code)
-            except httpx.HTTPStatusError:
-                unregistered_file.write(f"{code}\n")
-            else:
-                if not profile.sender_allowed:
-                    unregistered_file.write(f"{code}\n")
+            while True:
+                try:
+                    profile = client.get_profile(fiscal_code=code)
+                except httpx.HTTPStatusError as e:
+                    if e.response.status_code == 429:
+                        continue
+                    elif e.response.status_code == 404:
+                        unregistered_file.write(f"{code}\n")
+                        break
+                    else:
+                        raise
                 else:
-                    registered_file.write(f"{code}\n")
-            finally:
-                time.sleep(sleep)
+                    if not profile.sender_allowed:
+                        unregistered_file.write(f"{code}\n")
+                        break
+                    else:
+                        registered_file.write(f"{code}\n")
+                        break
+                finally:
+                    time.sleep(sleep)
 
 
 if __name__ == "__main__":
