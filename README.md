@@ -5,7 +5,7 @@ An experimental wrapper and command line interface for the Italian [IO App API](
 \[ [**Documentation**](https://io-beep-boop.readthedocs.io/en/latest/index.html) | [**PyPI**](https://pypi.org/project/io-beep-boop/) \]
 
 ```console
-(.venv)$ io-beep-boop
+$ io-beep-boop
 Usage: io-beep-boop [OPTIONS] COMMAND [ARGS]...
 
 Options:
