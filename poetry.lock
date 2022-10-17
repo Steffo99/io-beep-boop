@@ -66,7 +66,7 @@ python-versions = "*"
 
 [[package]]
 name = "cfig"
-version = "0.2.3"
+version = "0.3.0"
 description = "A configuration manager for Python"
 category = "main"
 optional = false
@@ -585,8 +585,8 @@ certifi = [
     {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
 ]
 cfig = [
-    {file = "cfig-0.2.3-py3-none-any.whl", hash = "sha256:8dcd3447f30a05c771f5e5586c1aee2e424b53b0095f1da89fdca6ab4811a61a"},
-    {file = "cfig-0.2.3.tar.gz", hash = "sha256:32c50a429023617540e9ab099bd7a02a456b71ddc20f02cc9696c0d9044314da"},
+    {file = "cfig-0.3.0-py3-none-any.whl", hash = "sha256:47310ec4e57b4f92b79f7ae223619d318d9bd068ed021cb24eb47d4cf55372b3"},
+    {file = "cfig-0.3.0.tar.gz", hash = "sha256:1343e7b5eddbd609a4349826b55498beead0d0e1ae27d53784c30a3749dcbe6b"},
 ]
 charset-normalizer = [
     {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
