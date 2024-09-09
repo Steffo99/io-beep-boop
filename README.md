@@ -1,22 +1,15 @@
-# `io-beep-boop`
+<div align="center">
 
-An experimental wrapper and command line interface for the Italian [IO App API](https://developer.io.italia.it/openapi.html)
+![](.media/icon-128x128_round.png)
 
-\[ [**Documentation**](https://io-beep-boop.readthedocs.io/en/latest/index.html) | [**PyPI**](https://pypi.org/project/io-beep-boop/) \]
+# IO Beep Boop
 
-```console
-$ io-beep-boop
-Usage: io-beep-boop [OPTIONS] COMMAND [ARGS]...
+Wrapper and CLI for the Italian [IO App API](https://developer.io.italia.it/openapi.html)
 
-Options:
-  --version         Show the version and exit.
-  -t, --token TEXT  One of the two IO App API tokens of the service you want
-                    to use.
-  --base-url TEXT   The base URL of the IO App API to use.
-  --help            Show this message and exit.
+</div>
 
-Commands:
-  registered-fast
-  registered-slow
-  ...
-```
+## Links
+
+[![Documentation](https://img.shields.io/readthedocs/io-beep-boop)](https://io-beep-boop.readthedocs.io/)
+ 
+[![Available on PyPI](https://img.shields.io/pypi/v/io-beep-boop)](https://pypi.org/project/io-beep-boop/)
